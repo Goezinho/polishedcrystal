@@ -75,7 +75,7 @@ CherrygrovePokeCenter1FGentlemanText:
 	cont "to use."
 	done
 
-WonderTradeReceptionistScript:
+LadyWonderTradeReceptionistScript:
 	opentext
 	writetext LadyWonderTradeExplanationText
 	promptbutton
