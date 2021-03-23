@@ -51,14 +51,26 @@ CherrygroveMart:
 	db -1
 
 CherrygroveMartAfterDex:
-	db 6 ; # items
-	db POKE_BALL
-	db HEAL_BALL
-	db POTION
-	db ANTIDOTE
-	db PARALYZEHEAL
-	db AWAKENING
-	db -1
+        db 18; # items		
+        db POKE_BALL
+        db HEAL_BALL
+        db POTION
+        db ANTIDOTE
+        db PARALYZEHEAL
+        db AWAKENING
+        db ABILITY_CAP
+        db LEAF_STONE
+        db FIRE_STONE
+        db WATER_STONE
+        db THUNDERSTONE
+        db MOON_STONE
+        db SUN_STONE
+        db DUSK_STONE
+        db DAWN_STONE
+        db SHINY_STONE
+        db ICE_STONE
+        db LUCKY_EGG
+        db -1
 
 VioletMart:
 	db 11 ; # items
