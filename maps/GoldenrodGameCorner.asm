@@ -111,37 +111,37 @@ GoldenrodGameCornerTMVendor_LoopScript: ; 056c36
 .flamethrower:
 	checktmhm TM_FLAMETHROWER
 	iftrue GoldenrodGameCornerPrizeVendor_AlreadyHaveTMScript
-	checkcoins 4000
+	checkcoins 1
 	ifequal $2, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
 	gettmhmname TM_FLAMETHROWER, $0
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse_jumpopenedtext GoldenrodGameCornerPrizeVendorQuitText
 	givetmhm TM_FLAMETHROWER
-	takecoins 4000
+	takecoins 1
 	sjump GoldenrodGameCornerTMVendor_FinishScript
 
 .thunderbolt:
 	checktmhm TM_THUNDERBOLT
 	iftrue GoldenrodGameCornerPrizeVendor_AlreadyHaveTMScript
-	checkcoins 4000
+	checkcoins 1
 	ifequal $2, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
 	gettmhmname TM_THUNDERBOLT, $0
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse_jumpopenedtext GoldenrodGameCornerPrizeVendorQuitText
 	givetmhm TM_THUNDERBOLT
-	takecoins 4000
+	takecoins 1
 	sjump GoldenrodGameCornerTMVendor_FinishScript
 
 .ice_beam:
 	checktmhm TM_ICE_BEAM
 	iftrue GoldenrodGameCornerPrizeVendor_AlreadyHaveTMScript
-	checkcoins 4000
+	checkcoins 1
 	ifequal $2, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
 	gettmhmname TM_ICE_BEAM, $0
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse_jumpopenedtext GoldenrodGameCornerPrizeVendorQuitText
 	givetmhm TM_ICE_BEAM
-	takecoins 4000
+	takecoins 1
 	sjump GoldenrodGameCornerTMVendor_FinishScript
 
 GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript:
