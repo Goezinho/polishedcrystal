@@ -85,6 +85,7 @@ LadyWonderTradeReceptionistScript:
 	writetext LadyWonderTradeCompleteText
 	playsound SFX_DEX_FANFARE_80_109
 	waitsfx
+.done
 	jumpopenedtext LadyWonderTradeGoodbyeText
 
 LadyWonderTradeExplanationText:
