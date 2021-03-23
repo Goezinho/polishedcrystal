@@ -18,7 +18,7 @@ CherrygrovePokeCenter1F_MapScriptHeader:
 	object_event  1,  6, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygrovePokeCenter1FTeacherScript, -1
 	object_event  8,  1, SPRITE_FAT_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_COMMAND, jumptextfaceplayer, CherrygrovePokeCenter1FFisherText, -1
 	object_event 11,  6, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_COMMAND, jumptextfaceplayer, CherrygrovePokeCenter1FGentlemanText, -1
-	object_event  9,  4, SPRITE_LADY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_COMMAND, jumptextfaceplayer, CherrygrovePokeCenter1FLadyText, -1
+	object_event  9,  4, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, jumptextfaceplayer, LadyWonderTradeReceptionistScript, -1
 
 PokemonJournalRedScript:
 	setflag ENGINE_READ_RED_JOURNAL
@@ -75,17 +75,33 @@ CherrygrovePokeCenter1FGentlemanText:
 	cont "to use."
 	done
 
-CherrygrovePokeCenter1FLadyText:
-	text "#mon Journal"
-	line "has such fascin-"
-	cont "ating stories!"
+WonderTradeReceptionistScript:
+	opentext
+	writetext LadyWonderTradeExplanationText
+	promptbutton
+	special WonderTrade
+	iffalse .done
+	playmusic MUSIC_POKECOM_CENTER
+	writetext LadyWonderTradeCompleteText
+	playsound SFX_DEX_FANFARE_80_109
+	waitsfx
+	jumpopenedtext LadyWonderTradeGoodbyeText
 
-	para "I come to #mon"
-	line "Centers for the"
+LadyWonderTradeExplanationText:
+	text "You can trade"
+	line "#mon with other"
+	cont "people far away."
+	done
 
-	para "latest issues, but"
-	line "they're not the"
+LadyWonderTradeCompleteText:
+	text "It's your new"
+	line "partner."
 
-	para "only place with"
-	line "a subscription."
+	para "Please take care"
+	line "of it with love."
+	done
+
+LadyWonderTradeGoodbyeText:
+	text "We hope to see you"
+	line "again."
 	done
