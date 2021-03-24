@@ -77,6 +77,14 @@ CherrygrovePokeCenter1FGentlemanText:
 
 LadyWonderTradeReceptionistScript:
 	opentext
+	writetext LadyWonderTradeIntroText
+	waitbutton
+	checkevent EVENT_INTRODUCED_TEALA
+	iftrue .introduced
+	writetext LadyIntroduceTealaText
+	waitbutton
+	setevent EVENT_INTRODUCED_TEALA
+.introduced
 	writetext LadyWonderTradeExplanationText
 	promptbutton
 	special WonderTrade
@@ -85,8 +93,28 @@ LadyWonderTradeReceptionistScript:
 	writetext LadyWonderTradeCompleteText
 	playsound SFX_DEX_FANFARE_80_109
 	waitsfx
+	ifnotequal 2, .done
+	setevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
+	setevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
+	playmusic MUSIC_SPIKY_EARED_PICHU_HGSS
+	writetext LadyWonderTradeForGSBallPichuText
+	promptbutton
+	verbosegivekeyitem GS_BALL
+	writetext LadyWonderTradeForGSBallPichuText2
+	waitbutton
 .done
 	jumpopenedtext LadyWonderTradeGoodbyeText
+
+LadyWonderTradeIntroText:
+	text "Hello! Welcome to"
+	line "#Com Center"
+	cont "Wonder Trade Hub."
+	done
+
+LadyIntroduceTealaText:
+	text "I'm Teala, your"
+	line "trade attendant."
+	done
 
 LadyWonderTradeExplanationText:
 	text "You can trade"
@@ -106,3 +134,47 @@ LadyWonderTradeGoodbyeText:
 	text "We hope to see you"
 	line "again."
 	done
+
+LadyWonderTradeForGSBallPichuText:
+	text "…But what's this?"
+	line "Is something wrong"
+
+	para "with the Wonder"
+	line "Trade machine?"
+
+	para "It seems like you"
+	line "just traded a"
+
+	para "#mon with"
+	line "yourself."
+
+	para "But that can't be"
+	line "right… You can't"
+
+	para "be in two places"
+	line "at once."
+
+	para "Besides, the ma-"
+	line "chine communicates"
+
+	para "through space,"
+	line "not time…"
+
+	para "And what is that"
+	line "strange Ball it's"
+
+	para "holding? Is it an"
+	line "Apricorn Ball?"
+
+	para "Here, take a look…"
+	done
+
+LadyWonderTradeForGSBallPichuText2:
+	text "It may be unusual,"
+	line "but a #mon"
+	cont "is a #mon."
+
+	para "Please look after"
+	line "it carefully."
+	done
+
